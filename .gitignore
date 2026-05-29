@@ -72,3 +72,6 @@ Plugins/**/Intermediate/*
 
 # Cache files for the editor to use
 DerivedDataCache/*
+
+# Archivos pesados específicos que superan los 100MB
+SmokeSwirl_3_Flipbook_CHANNELPACK.uasset
