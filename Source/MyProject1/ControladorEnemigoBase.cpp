@@ -53,23 +53,28 @@ void AControladorEnemigoBase::BeginPlay()
 
 void AControladorEnemigoBase::AlDetectarEstimulo(AActor* ActorDetectado, FAIStimulus Estimulo)
 {
-	// 1. Obtenemos acceso a la libreta (Blackboard) del NPC
-	if (UBlackboardComponent* Memoria = GetBlackboardComponent())
+	// 1. EL FILTRO DE FUEGO AMIGO: 
+	// Verificamos que el actor exista y que tenga la etiqueta exacta "Jugador".
+	// Si es otro NPC, un barril o cualquier otra cosa, el código simplemente se ignora.
+	if (ActorDetectado && ActorDetectado->ActorHasTag(FName("Jugador")))
 	{
-		// 2. Verificamos si el estímulo está activo (entró en visión o hizo ruido)
-		if (Estimulo.WasSuccessfullySensed())
+		// 2. Obtenemos acceso a la libreta (Blackboard) del NPC
+		if (UBlackboardComponent* Memoria = GetBlackboardComponent())
 		{
-			// Anotamos la coordenada exacta donde detectó el ruido o te vio
-			Memoria->SetValueAsVector(FName("UltimaPosicionConocida"), Estimulo.StimulusLocation);
+			// 3. Verificamos si el estímulo está activo (entró en visión o hizo ruido)
+			if (Estimulo.WasSuccessfullySensed())
+			{
+				// Anotamos la coordenada exacta donde detectó el ruido o te vio
+				Memoria->SetValueAsVector(FName("UltimaPosicionConocida"), Estimulo.StimulusLocation);
 
-			// Le decimos al cerebro que te está viendo
-			Memoria->SetValueAsBool(FName("JugadorVisto"), true);
-		}
-		else
-		{
-			// 3. Si el estímulo caducó (saliste de su cono de visión o el sonido terminó)
-			// Le decimos al cerebro que te perdió de vista
-			Memoria->SetValueAsBool(FName("JugadorVisto"), false);
+				// Le decimos al cerebro que te está viendo
+				Memoria->SetValueAsBool(FName("JugadorVisto"), true);
+			}
+			else
+			{
+				// 4. Si el estímulo caducó (saliste de su cono de visión)
+				Memoria->SetValueAsBool(FName("JugadorVisto"), false);
+			}
 		}
 	}
 }
