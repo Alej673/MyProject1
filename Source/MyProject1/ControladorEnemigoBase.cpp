@@ -54,8 +54,6 @@ void AControladorEnemigoBase::BeginPlay()
 void AControladorEnemigoBase::AlDetectarEstimulo(AActor* ActorDetectado, FAIStimulus Estimulo)
 {
 	// 1. EL FILTRO DE FUEGO AMIGO: 
-	// Verificamos que el actor exista y que tenga la etiqueta exacta "Jugador".
-	// Si es otro NPC, un barril o cualquier otra cosa, el código simplemente se ignora.
 	if (ActorDetectado && ActorDetectado->ActorHasTag(FName("Jugador")))
 	{
 		// 2. Obtenemos acceso a la libreta (Blackboard) del NPC
@@ -69,11 +67,20 @@ void AControladorEnemigoBase::AlDetectarEstimulo(AActor* ActorDetectado, FAIStim
 
 				// Le decimos al cerebro que te está viendo
 				Memoria->SetValueAsBool(FName("JugadorVisto"), true);
+
+				// --- ¡LA LÍNEA NUEVA! ---
+				// Le pasamos el actor físico al Blackboard para que el "Set Focus" lo pueda rastrear
+				Memoria->SetValueAsObject(FName("ActorJugador"), ActorDetectado);
 			}
 			else
 			{
-				// 4. Si el estímulo caducó (saliste de su cono de visión)
+				// 4. Si el estímulo caducó (saliste de su cono de visión al esconderte en el Punto B)
 				Memoria->SetValueAsBool(FName("JugadorVisto"), false);
+				Memoria->SetValueAsObject(FName("ActorJugador"), nullptr);
+
+				// --- ¡EL ARREGLO ESTÁ AQUÍ! ---
+				// Actualizamos el vector con la posición exacta donde te escondiste
+				Memoria->SetValueAsVector(FName("UltimaPosicionConocida"), Estimulo.StimulusLocation);
 			}
 		}
 	}
