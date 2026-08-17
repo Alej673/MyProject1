@@ -54,11 +54,11 @@ La máquina de estados manipula la cápsula de colisión (`Crouch`/`Uncrouch`) b
 
 | Behavior Tree | Sistema físico y desmembramiento |
 |:---:|:---:|
-| ![BehaviorTree](docs/screenshots/behaviortree.png) | ![Chaos](docs/screenshots/chaos_physics.png) |
+| ![BehaviorTree](behaviortree.png) | ![Chaos](chaos_physics.png) |
 
 | Percepción y debugging | AI Controller (C++) |
 |:---:|:---:|
-| ![AIDebug](docs/screenshots/ai_debug.png) | ![CppCode](docs/screenshots/cpp_controller.png) |
+| ![AIDebug](ai_debug.png) | ![CppCode](cpp_controller.png) |
 
 ---
 
