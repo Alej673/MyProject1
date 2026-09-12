@@ -1,5 +1,7 @@
 # Demo Técnica UE5: Inteligencia Artificial Táctica y Mecánicas Shooter
 
+📺 **[Ver Demostración en YouTube](https://youtu.be/H3Aa7519PL4)** &nbsp;|&nbsp; 📖 **[Ver Documentación en el Portafolio](https://alej673.github.io/proyecto-ue5.html)** &nbsp;|&nbsp; 💻 **[Código Fuente](https://github.com/Alej673/MyProject1)**
+
 Proyecto de desarrollo progresivo en Unreal Engine 5 enfocado en la construcción de sistemas robustos de Inteligencia Artificial, balística matemática y físicas reactivas. Desarrollado bajo principios SOLID, el proyecto aísla deliberadamente las mecánicas base (C++ y Blueprints) de la estética visual para garantizar rendimiento y escalabilidad.
 
 ---
@@ -68,7 +70,7 @@ La máquina de estados manipula la cápsula de colisión (`Crouch`/`Uncrouch`) b
 - **Estado:** demo técnica funcional (graybox)
 - **Fases completadas:** Fase 1 (jugador y matemáticas), Fase 2 (físicas y game feel), Fase 3 (IA - Módulo A)
 - **Próxima fase:** Fase B (EQS y coberturas dinámicas)
-- **Documentación:** +30 páginas de bitácora técnica
+- **Documentación:** +30 páginas de bitácora técnica disponible en el [portafolio](https://alej673.github.io/proyecto-ue5.html)
 
 ---
 
@@ -93,10 +95,11 @@ cd MyProject1
 
 ## Enlaces
 
-- [Repositorio](URL)
-- [Video demo](URL) *(próximamente)*
+- 🎥 [Video demo (YouTube)](https://youtu.be/H3Aa7519PL4)
+- 📂 [Repositorio (GitHub)](https://github.com/Alej673/MyProject1)
+- 📖 [Documentación del proyecto (Portafolio)](https://alej673.github.io/proyecto-ue5.html)
 
 ---
 
 **Autor:** Alejandro Larco  
-[GitHub](URL) · [LinkedIn](URL) · [Portafolio](URL)
+[GitHub](https://github.com/Alej673) · [LinkedIn](https://www.linkedin.com/in/alejandro-larco-03297b42a) · [Portafolio](https://alej673.github.io)
